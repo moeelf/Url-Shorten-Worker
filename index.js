@@ -1,7 +1,7 @@
 const html404 = `<!DOCTYPE html>
 <body>
-  <h1>404 Not Find.</h1>
-  <p>The url you visit is not find.</p>
+  <h1>404 Not Found.</h1>
+  <p>The url you visit is not found.</p>
 </body>`
 
 
@@ -19,14 +19,7 @@ async function checkURL(URL){
     let str=URL;
     let Expression=/http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
     let objExp=new RegExp(Expression);
-    if(objExp.test(str)==true){
-      if (str[0] == 'h')
-        return true;
-      else
-        return false;
-    }else{
-        return false;
-    }
+    return objExp.test(str) && str[0] === 'h';
 } 
 async function save_url(URL){
     let random_key=await randomString()
